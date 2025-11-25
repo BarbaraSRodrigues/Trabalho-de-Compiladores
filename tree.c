@@ -1,3 +1,6 @@
+#include <stdlib.h>
+#include <stdio.h>
+
 typedef struct no *ptno;
 
 struct no {
@@ -19,7 +22,7 @@ ptno criaNo (char tipo, int valor) {
 void adicionaFilho (ptno pai, ptno filho) {
     if(filho) {
         filho->irmao = pai->filho;
-        pai->filho;
+        pai->filho = filho; 
     }
 }
 
@@ -37,9 +40,8 @@ void mostra(ptno Raiz, int nivel){
 }
 
 void geraNos (FILE *f, ptno Raiz) {
-
     ptno p;
-    fprintf(f, "\tn%p [label=%c|%d]\n", Raiz, Raiz->tipo, Raiz->valor);
+    fprintf(f, "\tn%p [label=\"%c|%d\"]\n", Raiz, Raiz->tipo, Raiz->valor);
     p = Raiz->filho;
     while(p){
         geraNos(f, p);
@@ -48,7 +50,6 @@ void geraNos (FILE *f, ptno Raiz) {
 }
 
 void geraLigacoes (FILE *f, ptno Raiz){
-
     ptno p;
     p = Raiz->filho;
     while(p){
@@ -56,18 +57,22 @@ void geraLigacoes (FILE *f, ptno Raiz){
         geraLigacoes(f, p);
         p = p->irmao;
     }
-
 }
 
 void geraDot (ptno Raiz){
-
     FILE *f = fopen("tree.dot", "wt");
-    fprintf(f, "digraph {\n}");
-    fprintf(f, "\tnode [shape=record, height = .1] ; \n");
-    geraNos(f, Raiz);
-    geraLigacoes(f, Raiz);
+    fprintf(f, "digraph {\n");
+    fprintf(f, "\tnode [shape=record, height = .1];\n");
+    
+    if(Raiz) {
+        geraNos(f, Raiz);
+        geraLigacoes(f, Raiz);
+    }
+    
     fprintf(f, "}\n");
     fclose(f);
-    system ("dot -tpng tree.dot -o tree.png");
-    system("eog tree.png");
+    
+    printf("Arquivo tree.dot gerado com sucesso.\n");
+    // system ("dot -Tpng tree.dot -o tree.png");
+    // system("eog tree.png");
 }

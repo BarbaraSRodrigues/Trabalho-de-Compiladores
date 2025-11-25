@@ -1,0 +1,8 @@
+digraph {
+	node [shape=record, height = .1];
+	n0x559bfaccb770 [label="+|0"]
+	n0x559bfaccb730 [label="n|2"]
+	n0x559bfaccb750 [label="n|3"]
+	n0x559bfaccb770 -> n0x559bfaccb730
+	n0x559bfaccb770 -> n0x559bfaccb750
+}
