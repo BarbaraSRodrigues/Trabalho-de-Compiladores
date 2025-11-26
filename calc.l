@@ -1,29 +1,26 @@
 %{
+#include "tree.c"
+#define YYSTYPE ptno
+#include "sintatico.h"
 #include <stdlib.h>
-#include "calc.h" 
-
 void yyerror(char *);
 %}
 
 %%
-
-"-"     {return T_MENOS;}   
-"+"     {return T_MAIS;}
-"*"     {return T_MULT;}
-"/"     {return T_DIV;}
-"{"     {return T_ABRE;}
-"}"     {return T_FECHA;}
-"\n"    {return T_ENTER;}
-
-[0-9]+  {
-            yylval.val = atoi(yytext); 
-            return T_NUM;
-        }
-
-[ \t]+  { /* faz nada (ignora espaços e tabs) */ }
-
-.       { yyerror("Erro léxico - símbolo desconhecido"); } 
+"-"    { return T_MENOS; }
+"+"    { return T_MAIS; }
+"*"    { return T_MULT; }
+"/"    { return T_DIV; }
+"("    { return T_ABRE; }
+")"    { return T_FECHA; }
+"\n"   { return T_ENTER; }
+[0-9]+ {
+          yylval = criaNo('n', atoi(yytext));
+          return T_NUM;
+       }
+[ \t]  /* faz nada */
+.      yyerror("Erro léxico - símbolo desconhecido"); 
 
 %%
 
-int yywrap (void) {return 1;}
+int yywrap (void) { return 1; }

@@ -1,8 +1,12 @@
 digraph {
 	node [shape=record, height = .1];
-	n0x559bfaccb770 [label="+|0"]
-	n0x559bfaccb730 [label="n|2"]
-	n0x559bfaccb750 [label="n|3"]
-	n0x559bfaccb770 -> n0x559bfaccb730
-	n0x559bfaccb770 -> n0x559bfaccb750
+	n0x5ace62f00ea0 [label="*|0"]
+	n0x5ace62f00e60 [label="+|0"]
+	n0x5ace62f00e20 [label="n|2"]
+	n0x5ace62f00e40 [label="n|3"]
+	n0x5ace62f00e80 [label="n|4"]
+	n0x5ace62f00ea0 -> n0x5ace62f00e60
+	n0x5ace62f00e60 -> n0x5ace62f00e20
+	n0x5ace62f00e60 -> n0x5ace62f00e40
+	n0x5ace62f00ea0 -> n0x5ace62f00e80
 }

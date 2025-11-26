@@ -76,3 +76,26 @@ void geraDot (ptno Raiz){
     // system ("dot -Tpng tree.dot -o tree.png");
     // system("eog tree.png");
 }
+
+void geracod(ptno Raiz) {
+    if (!Raiz) return; 
+
+    if (Raiz->tipo == 'n') {
+        printf("\tCRCT %d\n", Raiz->valor);
+        return;
+    }
+
+    geracod(Raiz->filho);
+
+    if (Raiz->filho) {
+        geracod(Raiz->filho->irmao);
+    }
+
+    switch (Raiz->tipo) {
+        case '+': printf("\tSOMA\n"); break;
+        case '-': printf("\tSUBT\n"); break;
+        case '*': printf("\tMULT\n"); break;
+        case '/': printf("\tDIVI\n"); break;
+        default: break; 
+    }
+}
