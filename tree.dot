@@ -1,12 +1,30 @@
 digraph {
-	node [shape=record, height = .1];
-	n0x5ace62f00ea0 [label="*|0"]
-	n0x5ace62f00e60 [label="+|0"]
-	n0x5ace62f00e20 [label="n|2"]
-	n0x5ace62f00e40 [label="n|3"]
-	n0x5ace62f00e80 [label="n|4"]
-	n0x5ace62f00ea0 -> n0x5ace62f00e60
-	n0x5ace62f00e60 -> n0x5ace62f00e20
-	n0x5ace62f00e60 -> n0x5ace62f00e40
-	n0x5ace62f00ea0 -> n0x5ace62f00e80
+	node [shape=record, height=.1];
+	n0x6549a4f5a4b0 [label="programa | "]
+	n0x6549a4f5a4d0 [label="identificador | dobro"]
+	n0x6549a4f5a370 [label="declaracao de variaveis | "]
+	n0x6549a4f5a390 [label="tipo | inteiro"]
+	n0x6549a4f5a330 [label="lista variaveis | "]
+	n0x6549a4f5a350 [label="identificador | n"]
+	n0x6549a4f5a490 [label="lista comandos | "]
+	n0x6549a4f5a3b0 [label="leitura | "]
+	n0x6549a4f5a3d0 [label="identificador | n"]
+	n0x6549a4f5a470 [label="lista comandos | "]
+	n0x6549a4f5a450 [label="escrita | "]
+	n0x6549a4f5a430 [label="multiplica | "]
+	n0x6549a4f5a3f0 [label="numero | 2"]
+	n0x6549a4f5a410 [label="variavel | n"]
+	n0x6549a4f5a4b0 -> n0x6549a4f5a4d0
+	n0x6549a4f5a4b0 -> n0x6549a4f5a370
+	n0x6549a4f5a4b0 -> n0x6549a4f5a490
+	n0x6549a4f5a370 -> n0x6549a4f5a390
+	n0x6549a4f5a370 -> n0x6549a4f5a330
+	n0x6549a4f5a330 -> n0x6549a4f5a350
+	n0x6549a4f5a490 -> n0x6549a4f5a3b0
+	n0x6549a4f5a490 -> n0x6549a4f5a470
+	n0x6549a4f5a3b0 -> n0x6549a4f5a3d0
+	n0x6549a4f5a470 -> n0x6549a4f5a450
+	n0x6549a4f5a450 -> n0x6549a4f5a430
+	n0x6549a4f5a430 -> n0x6549a4f5a3f0
+	n0x6549a4f5a430 -> n0x6549a4f5a410
 }

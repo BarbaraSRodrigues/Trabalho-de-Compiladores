@@ -54,21 +54,50 @@ extern int yydebug;
     YYEOF = 0,                     /* "end of file"  */
     YYerror = 256,                 /* error  */
     YYUNDEF = 257,                 /* "invalid token"  */
-    T_ENTER = 258,                 /* T_ENTER  */
-    T_MAIS = 259,                  /* T_MAIS  */
-    T_MENOS = 260,                 /* T_MENOS  */
-    T_MULT = 261,                  /* T_MULT  */
-    T_DIV = 262,                   /* T_DIV  */
-    T_ABRE = 263,                  /* T_ABRE  */
-    T_FECHA = 264,                 /* T_FECHA  */
-    T_NUM = 265                    /* T_NUM  */
+    T_PROGRAMA = 258,              /* T_PROGRAMA  */
+    T_INICIO = 259,                /* T_INICIO  */
+    T_FIM = 260,                   /* T_FIM  */
+    T_INTEIRO = 261,               /* T_INTEIRO  */
+    T_LEIA = 262,                  /* T_LEIA  */
+    T_ESCREVA = 263,               /* T_ESCREVA  */
+    T_ATRIB = 264,                 /* T_ATRIB  */
+    T_ABRE = 265,                  /* T_ABRE  */
+    T_FECHA = 266,                 /* T_FECHA  */
+    T_MAIS = 267,                  /* T_MAIS  */
+    T_MENOS = 268,                 /* T_MENOS  */
+    T_MULT = 269,                  /* T_MULT  */
+    T_DIV = 270,                   /* T_DIV  */
+    T_SE = 271,                    /* T_SE  */
+    T_ENTAO = 272,                 /* T_ENTAO  */
+    T_SENAO = 273,                 /* T_SENAO  */
+    T_FIMSE = 274,                 /* T_FIMSE  */
+    T_ENQTO = 275,                 /* T_ENQTO  */
+    T_FACA = 276,                  /* T_FACA  */
+    T_FIMENQTO = 277,              /* T_FIMENQTO  */
+    T_MAIOR = 278,                 /* T_MAIOR  */
+    T_MENOR = 279,                 /* T_MENOR  */
+    T_IGUAL = 280,                 /* T_IGUAL  */
+    T_NAO = 281,                   /* T_NAO  */
+    T_NUM = 282,                   /* T_NUM  */
+    T_IDENTIF = 283                /* T_IDENTIF  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
-typedef int YYSTYPE;
+union YYSTYPE
+{
+#line 34 "sintatico.y"
+
+    int valor;
+    char ident[100];
+    ptno no;
+
+#line 98 "sintatico.h"
+
+};
+typedef union YYSTYPE YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define YYSTYPE_IS_DECLARED 1
 #endif

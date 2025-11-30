@@ -1,7 +1,8 @@
-calc : calc.l calc.y;
-	@flex -o lexico.c calc.l
-	@bison -v -d calc.y -o sintatico.c
-	@gcc sintatico.c -o calc
-limpa : ;
+simples: tree.c lexico.l sintatico.y;
+	@flex -o lexico.c lexico.l
+	@bison -v -d sintatico.y -o sintatico.c
+	@gcc lexico.c sintatico.c -o simples
+
+limpa: ;
 	@echo "limpando..."
-	@rm lexico.c sintatico.c sintatico.h sintatico.output calc
+	@rm lexico.c sintatico.c sintatico.h sintatico.output simples
